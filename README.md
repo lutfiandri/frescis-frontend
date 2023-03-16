@@ -1,38 +1,87 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+  FresCis Frontend
+</h1>
+<p align="center">Website FresCis | Senior Project</p>
 
-## Getting Started
+<br>
 
-First, run the development server:
+<!-- ## Related Repository
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+- Frontend Repo: [https://github.com/lutfiandri/teti-lib-frontend](https://github.com/lutfiandri/teti-lib-frontend) (current)
+- Backend Repo: [https://github.com/lutfiandri/teti-lib](https://github.com/lutfiandri/teti-lib) -->
+
+<!-- ## Links
+
+- Slide Presentasi: [Click Here](https://www.canva.com/design/DAFSQCxxR6Q/3yai7zDDPaF2WBaAPU3OfA/view?utm_content=DAFSQCxxR6Q&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1)
+- Front End: https://teti-library.vercel.app/
+- Back End: https://teti-lib.vercel.app/
+- Postman Docs: [Click Here](https://documenter.getpostman.com/view/23529898/2s8YzS1iXv) -->
+
+## Development Setup
+
+### Prerequisites
+
+- [Download](https://nodejs.org/en/download/) and install **Node.js** version `18.15` or higher.
+
+### Setting Up Project
+
+- Clone this repository
+- Open with your favorite code editor
+- Install required dependencies:
+
+  ```bash
+  npm install
+  ```
+
+- Run the program:
+
+  ```bash
+  # on development
+  npm run dev
+  ```
+
+- Happy coding
+
+## Branch Naming
+
+`<type>/<short_description>`
+
+- `<type>` :
+  - feature: saya menambahkan fitur baru
+  - fix: saya memperbaiki fitur
+
+contoh: feature/menambahkan-navbar <br/>
+[Learn More](https://nvie.com/posts/a-successful-git-branching-model/)
+
+## Commit Messages
+
+`<type>(scope): <short_summary>` <br/>
+[Baca lebih lengkap](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716)
+
+## Folder Structure
+
+```
+- docs                 # asset dokumentasi
+- public               # bisa diakses public (menyimpan gambar)
+- src
+  - components
+    - ui               # component element satuan
+    - templates        # component template yang dapat digunakan berulang kali
+  - layouts            # layout -> digunakan berulang kali untuk base suatu halaman
+  - pages              # halaman - halaman
+  - styles             # styling dan tema
+  - utils
+    - helpers          # helper function
+    - hooks            # react hook
+    - services         # fetcher dari api
+    - constants        # constant variables
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Import Path Mapping
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Gunakan path mapping. `@` akan me-mapping-kan ke src. Contoh:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```javascript
+import Home from '@/pages/Home.jsx';
+import Button from '@/components/elements/Button.jsx';
+```
