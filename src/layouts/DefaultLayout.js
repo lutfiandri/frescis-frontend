@@ -1,4 +1,5 @@
 import AppBar from '@/components/templates/AppBar';
+import BottomNavBar from '@/components/templates/BottomNavBar';
 import { useRouter } from 'next/router';
 import BaseLayout from './BaseLayout';
 
@@ -35,11 +36,7 @@ function DefaultLayout({
           {children}
         </div>
 
-        <div
-          style={{ minHeight: '80px', height: '80px', background: '#2563eb' }}
-        >
-          menu
-        </div>
+        <BottomNavBar></BottomNavBar>
       </div>
     </BaseLayout>
   );

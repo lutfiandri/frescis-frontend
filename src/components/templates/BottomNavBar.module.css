@@ -1,0 +1,26 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+}
+
+.item {
+  padding: 20px 8px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background: #dbeafe;
+  transition: all 200ms;
+  cursor: pointer;
+}
+
+.item:hover {
+  background: #bfdbfe;
+}
+
+.item_text {
+  margin-top: 4px;
+  font-size: 0.7em;
+}

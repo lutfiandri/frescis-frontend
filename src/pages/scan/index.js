@@ -1,11 +1,13 @@
 import DefaultLayout from '@/layouts/DefaultLayout';
 import { Button, Space, Tag } from 'antd';
+import { useRouter } from 'next/router';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { TbCameraRotate } from 'react-icons/tb';
 import Webcam from 'react-webcam';
 
 function Scan() {
   const webcamRef = useRef();
+  const router = useRouter();
 
   // initialize camera
   useEffect(() => {
@@ -44,6 +46,8 @@ function Scan() {
     try {
       const imageb64 = capture();
       console.log(imageb64);
+
+      router.push('/scan/result');
 
       // setImageUrl(imageb64);
 
