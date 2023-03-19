@@ -1,0 +1,23 @@
+.container {
+  width: full;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  padding: 16px 20px;
+  position: relative;
+}
+
+.back_button {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 16px;
+}
+
+.title {
+  margin: 0 auto;
+  font-size: 1.1em;
+  text-align: center;
+  font-weight: medium;
+}
