@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+.logo_container {
+  margintop: 5vh;
+  position: relative;
+}
+
+.skewed_box {
+  background: #3b82f6;
+  height: 45vh;
+  transform: skewY(-10deg);
+}
+
+.button_container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding: 16px;
+  margin-top: 10vh;
+}
+
+.button {
+  width: 240px;
+}
