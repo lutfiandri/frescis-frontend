@@ -52,7 +52,14 @@ function DefaultLayout({
           </header>
         ) : null}
 
-        <div style={{ padding: '16px', flex: 1, overflow: 'auto' }}>
+        <div
+          style={{
+            padding: '16px',
+            flex: 1,
+            overflow: 'auto',
+            position: 'relative',
+          }}
+        >
           {children}
         </div>
 
