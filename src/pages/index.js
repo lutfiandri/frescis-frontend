@@ -1,10 +1,13 @@
 import UserProfileImage from '@/components/templates/UserProfileImage';
 import UserContext from '@/contexts/userContext';
 import DefaultLayout from '@/layouts/DefaultLayout';
+import useActiveUser from '@/utils/hooks/useActiveUser';
 import { Space } from 'antd';
 import { useContext } from 'react';
 
 export default function Home() {
+  useActiveUser(false);
+
   const { user } = useContext(UserContext);
 
   return (

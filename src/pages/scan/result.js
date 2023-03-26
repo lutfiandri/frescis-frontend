@@ -1,8 +1,11 @@
+import useActiveUser from '@/utils/hooks/useActiveUser';
 import { Image, Space } from 'antd';
 
 const { default: DefaultLayout } = require('@/layouts/DefaultLayout');
 
 function ScanResult() {
+  useActiveUser(false);
+
   return (
     <DefaultLayout
       title="Scan Result"

@@ -15,9 +15,11 @@ function UserProfileImage() {
 
   const signOutHandler = () => {
     Modal.confirm({
-      title: 'Do you want to sign out?',
+      title: 'Do you want to logout?',
       centered: true,
       zIndex: 9999,
+      okType: 'danger',
+      okText: 'Logout',
       onOk: () => {
         signOut(auth)
           .then(() => {
