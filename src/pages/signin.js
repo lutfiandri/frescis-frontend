@@ -1,10 +1,39 @@
+import UserContext from '@/contexts/userContext';
+import BaseLayout from '@/layouts/BaseLayout';
 import styles from '@/styles/pageStyles/signin.module.css';
+import { auth, googleAuthProvicer } from '@/utils/services/firebase';
 import { Button, Divider } from 'antd';
+import { signInWithPopup } from 'firebase/auth';
 import Image from 'next/image';
-
-const { default: BaseLayout } = require('@/layouts/BaseLayout');
+import { useRouter } from 'next/router';
+import { useContext } from 'react';
 
 function SignIn() {
+  const { setUser } = useContext(UserContext);
+  const router = useRouter();
+
+  const signInWithGoogleHandler = () => {
+    signInWithPopup(auth, googleAuthProvicer)
+      .then((result) => {
+        const user = result.user;
+        setUser({
+          uid: user.uid,
+          displayName: user.displayName,
+          email: user.email,
+          photoURL: user.photoURL,
+        });
+        router.push('/');
+      })
+      .catch((err) => {
+        setUser(null);
+        console.error(err);
+      });
+  };
+
+  const continueWithoutSignInHandler = () => {
+    router.push('/');
+  };
+
   return (
     <BaseLayout seoTitle="Sign In - FresCis">
       <div className={styles.container}>
@@ -26,7 +55,12 @@ function SignIn() {
         </div>
 
         <div className={styles.button_container}>
-          <Button className={styles.button} size="large" shape="round">
+          <Button
+            className={styles.button}
+            size="large"
+            shape="round"
+            onClick={signInWithGoogleHandler}
+          >
             <div
               style={{
                 display: 'flex',
@@ -45,7 +79,13 @@ function SignIn() {
             </div>
           </Button>
           <Divider plain>or</Divider>
-          <Button className={styles.button} size="large" shape="round">
+
+          <Button
+            className={styles.button}
+            size="large"
+            shape="round"
+            onClick={continueWithoutSignInHandler}
+          >
             Continue without account
           </Button>
         </div>

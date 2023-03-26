@@ -20,6 +20,14 @@
   background: #bfdbfe;
 }
 
+.item_disabled {
+  cursor: disabled;
+}
+
+.item_disabled:hover {
+  background: #dbeafe;
+}
+
 .item_text {
   margin-top: 4px;
   font-size: 0.7em;

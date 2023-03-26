@@ -1,4 +1,5 @@
 import DefaultLayout from '@/layouts/DefaultLayout';
+import useActiveUser from '@/utils/hooks/useActiveUser';
 import { Button, Space, Tag } from 'antd';
 import { useRouter } from 'next/router';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -6,6 +7,8 @@ import { TbCameraRotate } from 'react-icons/tb';
 import Webcam from 'react-webcam';
 
 function Scan() {
+  useActiveUser(false);
+
   const webcamRef = useRef();
   const router = useRouter();
 
