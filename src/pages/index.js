@@ -7,7 +7,6 @@ import { useContext } from 'react';
 export default function Home() {
   const { user } = useContext(UserContext);
 
-  console.log(user);
   return (
     <DefaultLayout seoTitle="FresCis" hideAppBar>
       <Space direction="vertical" size="large" style={{ width: '100%' }}>

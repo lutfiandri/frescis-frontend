@@ -17,15 +17,16 @@ function SignIn() {
       .then((result) => {
         const user = result.user;
         setUser({
+          uid: user.uid,
           displayName: user.displayName,
           email: user.email,
           photoURL: user.photoURL,
         });
         router.push('/');
       })
-      .catch((error) => {
+      .catch((err) => {
         setUser(null);
-        console.log('error auth', error);
+        console.error(err);
       });
   };
 

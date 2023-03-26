@@ -3,7 +3,7 @@ import { createContext, useState } from 'react';
 const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
-  // user -> {displayName: string, email: string, photoURL: string}
+  // user -> {uid: string, displayName: string, email: string, photoURL: string}
   const [user, setUser] = useState(null);
 
   return (
