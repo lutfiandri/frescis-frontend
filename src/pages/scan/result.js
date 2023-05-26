@@ -1,10 +1,29 @@
+import ResultContext from '@/contexts/resultContext';
 import useActiveUser from '@/utils/hooks/useActiveUser';
 import { Image, Space } from 'antd';
+import { useContext, useMemo } from 'react';
 
 const { default: DefaultLayout } = require('@/layouts/DefaultLayout');
 
 function ScanResult() {
   useActiveUser(false);
+
+  const { result } = useContext(ResultContext);
+
+  const topPrediction = useMemo(
+    () => result?.predictions[0]?.predictions[0],
+    [result]
+  );
+
+  const topPredictionClass = useMemo(
+    () => topPrediction?.class,
+    [topPrediction]
+  );
+
+  const topPredictionConfidence = useMemo(
+    () => topPrediction?.confidence,
+    [topPrediction]
+  );
 
   return (
     <DefaultLayout
@@ -14,7 +33,7 @@ function ScanResult() {
     >
       <Space direction="vertical" style={{ width: '100%' }} size="large">
         <Image
-          src="https://ih1.redbubble.net/image.1952190325.3164/st,small,507x507-pad,600x600,f8f8f8.jpg"
+          src={result?.image}
           alt="image taken"
           width="100%"
           style={{
@@ -24,7 +43,9 @@ function ScanResult() {
 
         <Space direction="vertical" size="small">
           <div style={{ color: '#374151' }}>Freshness Level</div>
-          <div style={{ fontSize: '1.2em' }}>Very Fresh</div>
+          <div style={{ fontSize: '1.2em' }}>
+            {topPredictionClass} • {topPredictionConfidence * 100}%
+          </div>
         </Space>
       </Space>
     </DefaultLayout>

@@ -17,3 +17,7 @@ body {
 .hover-pointer:hover {
   cursor: pointer;
 }
+
+.h-full-no-header-footer {
+  height: calc(100vh - 53px - 82px);
+}
