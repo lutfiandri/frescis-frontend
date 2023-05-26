@@ -74,7 +74,8 @@ function Scan() {
       axios
         // .post('http://localhost:7071/api/Predict', formData)
         .post(
-          'https://frescis-backend.azurewebsites.net/api/Predict?code=Sssjuzu786oVyNLwxTQPdLlZe_dEJyAJiP9LOqVMJG6EAzFuc076Vw==',
+          process.env.NEXT_PUBLIC_BACKEND_BASEURL +
+            '/api/Predict?code=Sssjuzu786oVyNLwxTQPdLlZe_dEJyAJiP9LOqVMJG6EAzFuc076Vw==',
           formData
         )
         .then((response) => {
