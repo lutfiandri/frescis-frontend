@@ -1,19 +1,21 @@
 import ResultContext from '@/contexts/resultContext';
+import DefaultLayout from '@/layouts/DefaultLayout';
 import useActiveUser from '@/utils/hooks/useActiveUser';
 import { Image, Space } from 'antd';
 import { useContext, useMemo } from 'react';
-
-const { default: DefaultLayout } = require('@/layouts/DefaultLayout');
 
 function ScanResult() {
   useActiveUser(false);
 
   const { result } = useContext(ResultContext);
 
-  const topPrediction = useMemo(
-    () => result?.predictions[0]?.predictions[0],
-    [result]
-  );
+  const topPrediction = useMemo(() => {
+    if (!!result?.predictions?.length) {
+      if (!!result?.predictions[0]?.predictions?.length) {
+        return result?.predictions[0]?.predictions[0];
+      }
+    }
+  }, [result]);
 
   const topPredictionClass = useMemo(
     () => topPrediction?.class,
