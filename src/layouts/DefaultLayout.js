@@ -9,6 +9,7 @@ function DefaultLayout({
   hideAppBar,
   showBackButton,
   children,
+  noContentPadding,
 }) {
   const router = useRouter();
 
@@ -27,7 +28,7 @@ function DefaultLayout({
 
         <div
           style={{
-            padding: '16px',
+            padding: noContentPadding ? '0px' : '16px',
             flex: 1,
             overflow: 'auto',
             position: 'relative',
