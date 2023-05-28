@@ -4,13 +4,20 @@ import DefaultLayout from '@/layouts/DefaultLayout';
 import useActiveUser from '@/utils/hooks/useActiveUser';
 import { Space } from 'antd';
 import axios from 'axios';
+import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
 
 function History() {
   useActiveUser(true);
 
   const { user } = useContext(UserContext);
-  console.log(user);
+
+  const router = useRouter();
+  useEffect(() => {
+    if (!user?.uid) {
+      router.replace('/');
+    }
+  }, [user, router]);
 
   const [histories, setHistories] = useState([]);
 
