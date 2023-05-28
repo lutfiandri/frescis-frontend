@@ -1,5 +1,6 @@
 import { LoadingScreen } from '@/components/templates/LoadingScreen';
 import ResultContext from '@/contexts/resultContext';
+import UserContext from '@/contexts/userContext';
 import DefaultLayout from '@/layouts/DefaultLayout';
 import base64ToBlob from '@/utils/helpers/base64ToBlob';
 import useActiveUser from '@/utils/hooks/useActiveUser';
@@ -19,6 +20,8 @@ import Webcam from 'react-webcam';
 
 function Scan() {
   useActiveUser(false);
+
+  const { user } = useContext(UserContext);
 
   const { setResult } = useContext(ResultContext);
 
@@ -70,6 +73,7 @@ function Scan() {
 
       const formData = new FormData();
       formData.append('image', image, 'image.jpg');
+      formData.append('uid', user?.uid);
 
       axios
         // .post('http://localhost:7071/api/Predict', formData)
