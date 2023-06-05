@@ -46,7 +46,14 @@ function ScanResult() {
         <Space direction="vertical" size="small">
           <div style={{ color: '#374151' }}>Freshness Level</div>
           <div style={{ fontSize: '1.2em' }}>
-            {topPredictionClass} • {(topPredictionConfidence * 100).toFixed(2)}%
+            {topPredictionConfidence < 0.6 ? (
+              'Tidak terdeteksi mata ikan'
+            ) : (
+              <span>
+                {topPredictionClass} •{' '}
+                {(topPredictionConfidence * 100).toFixed(2)}%
+              </span>
+            )}
           </div>
         </Space>
       </Space>

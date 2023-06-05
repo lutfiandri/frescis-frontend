@@ -55,14 +55,18 @@ function History() {
   return (
     <DefaultLayout seoTitle="Scan History - FresCis" title="Scan History">
       <Space direction="vertical">
-        {histories.map((history) => (
-          <HistoryItem
-            key={history?._id}
-            imageSrc={history?.image_url}
-            predictedClass={getPredictedClass(history?.predictions)}
-            predictedConfidence={getPredictedConfidence(history?.predictions)}
-          ></HistoryItem>
-        ))}
+        {histories
+          .filter(
+            (history) => getPredictedConfidence(history?.predictions) >= 0.6
+          )
+          .map((history) => (
+            <HistoryItem
+              key={history?._id}
+              imageSrc={history?.image_url}
+              predictedClass={getPredictedClass(history?.predictions)}
+              predictedConfidence={getPredictedConfidence(history?.predictions)}
+            ></HistoryItem>
+          ))}
       </Space>
     </DefaultLayout>
   );
